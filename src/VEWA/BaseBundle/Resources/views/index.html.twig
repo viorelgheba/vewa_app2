@@ -32,7 +32,7 @@
               <td><a target="_blank" href="{{ product.product.link }}"><img src="{{ product.product.image }}" width="64px" /></a></td>
               <td><a target="_blank" href="{{ product.product.link }}">{{ product.product.name }}</a></td>
               <td>{{ product.wishlist.device.deviceName }}</td>
-              <td>{{ product.product.modified|date('Y-m-d H:i:s') }}</td>
+              <td>{{ product.modified|date('Y-m-d H:i:s') }}</td>
           </tr>
           {% endfor %}
       </table>
