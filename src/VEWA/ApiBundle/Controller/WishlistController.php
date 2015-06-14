@@ -48,6 +48,7 @@ class WishlistController extends Controller
                     $this->get('doctrine')->getManager()->flush();
                 }
 
+                $logger->info("[API][WISHLIST] Wishlist ID " . $wishlist->getId());
                 $entries = $wishlistService->getWishlistProducts($wishlist);
 
                 $logger->info('[API][WISHLIST] Found item/s: ' . json_encode($entries) . ' | Total item/s: ' . count($entries));

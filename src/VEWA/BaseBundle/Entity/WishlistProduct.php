@@ -34,7 +34,7 @@ class WishlistProduct
 
     /**
      * @var \VEWA\BaseBundle\Entity\Product
-     * @ORM\OneToOne(targetEntity="\VEWA\BaseBundle\Entity\Product", fetch="EXTRA_LAZY")
+     * @ORM\ManyToOne(targetEntity="\VEWA\BaseBundle\Entity\Product", inversedBy="wishlistProducts", fetch="EXTRA_LAZY")
      * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      */
     protected $product;

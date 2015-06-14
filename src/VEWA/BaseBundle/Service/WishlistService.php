@@ -87,27 +87,9 @@ class WishlistService
     public function getWishlistProducts($wishlist)
     {
         if ($wishlist !== null) {
-            $products = $wishlist->getProducts();
-            if (!empty($products)) {
-                $list = [];
-
-                /** @var WishlistProduct $product */
-                foreach ($products as $product) {
-                    if ($product->getStatus() == WishlistProduct::STATUS_DISABLED) {
-                        continue;
-                    }
-
-                    $list[] = [
-                        'id'      => $product->getProduct()->getEmagId(),
-                        'title'   => $product->getProduct()->getName(),
-                        'image'   => $product->getProduct()->getImage(),
-                        'link'    => $product->getProduct()->getLink(),
-                        'price'   => $product->getProduct()->getPrice(),
-                    ];
-                }
-
-                return $list;
-            }
+            return $this->getDoctrine()
+                ->getRepository('VEWABaseBundle:WishlistProduct')
+                ->getWishlistProducts($wishlist->getId());
         }
 
         return [];

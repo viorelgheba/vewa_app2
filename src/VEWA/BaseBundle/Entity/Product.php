@@ -3,6 +3,7 @@
 namespace VEWA\BaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * VEWA\BaseBundle\Entity\Product
@@ -75,11 +76,19 @@ class Product
     protected $modified;
 
     /**
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="\VEWA\BaseBundle\Entity\WishlistProduct", mappedBy="wishlist", indexBy="id", fetch="EXTRA_LAZY", cascade={"persist"})
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     */
+    protected $wishlistProducts;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->created = new \DateTime();
+        $this->wishlistProducts = new ArrayCollection();
     }
 
     /**
@@ -88,6 +97,11 @@ class Product
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getWishlistProducts()
+    {
+        return $this->wishlistProducts;
     }
 
     /**
