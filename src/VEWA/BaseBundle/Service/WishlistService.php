@@ -47,7 +47,7 @@ class WishlistService
     {
         return $this->getDoctrine()
             ->getRepository('VEWABaseBundle:WishlistProduct')
-            ->findBy([], ['id' => 'DESC'], 10);
+            ->findBy(['status' => WishlistProduct::STATUS_ENABLED], ['modified' => 'DESC'], 10);
     }
 
     /**
@@ -148,6 +148,7 @@ class WishlistService
         $wishlistProduct->setWishlist($wishlist);
         $wishlistProduct->setProduct($product);
         $wishlistProduct->setCreated(new \DateTime('now'));
+        $wishlistProduct->setModified(new \DateTime('now'));
         $wishlistProduct->setStatus(WishlistProduct::STATUS_ENABLED);
 
         $this->getDoctrine()->getManager()->persist($wishlistProduct);
