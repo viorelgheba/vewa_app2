@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="vewa_api.logger" class="Symfony\Bridge\Monolog\Logger">
+            <argument type="string">app</argument>
+            <call method="pushHandler">
+                <argument type="service" id="vewa_api.logger_handler"/>
+            </call>
+        </service>
+        <service id="vewa_api.logger_handler" class="Monolog\Handler\StreamHandler">
+            <argument type="string">%kernel.logs_dir%/%kernel.environment%.api.requests.log</argument>
+            <argument type="string">200</argument>
+        </service>
+
+        <service id="vewa_base.device" class="VEWA\BaseBundle\Service\DeviceService">
+            <argument type="service" id="service_container"/>
+            <argument type="service" id="doctrine"/>
+            <argument type="service" id="logger"/>
+        </service>
+
+        <service id="vewa_base.product" class="VEWA\BaseBundle\Service\ProductService">
+            <argument type="service" id="service_container"/>
+            <argument type="service" id="doctrine"/>
+            <argument type="service" id="logger"/>
+        </service>
+
+        <service id="vewa_base.wishlist" class="VEWA\BaseBundle\Service\WishlistService">
+            <argument type="service" id="service_container"/>
+            <argument type="service" id="doctrine"/>
+            <argument type="service" id="logger"/>
+        </service>
+
+    </services>
+</container>

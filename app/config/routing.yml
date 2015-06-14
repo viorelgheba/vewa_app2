@@ -1,0 +1,9 @@
+vewa_api:
+    resource: "@VEWAApiBundle/Controller/"
+    type:     annotation
+    prefix:   /api
+
+vewa_base:
+    resource: "@VEWABaseBundle/Controller/"
+    type:     annotation
+    prefix:   /

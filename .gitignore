@@ -35,3 +35,9 @@
 
 # Composer PHAR
 /composer.phar
+
+# IDE
+/.idea/
+
+# OSX
+.DS_Store

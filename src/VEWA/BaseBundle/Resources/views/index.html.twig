@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" class="app">
+<head>  
+  <meta charset="utf-8" />
+  <title>VEWA</title>
+  <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link href="{{ asset('bundles/vewabase/js/calendar/bootstrap_calendar.css', absolute=true) }}" rel="stylesheet" media="screen">
+  <link href="{{ asset('bundles/vewabase/css/app.css', absolute=true) }}" rel="stylesheet" media="screen">
+  <link href="{{ asset('bundles/vewabase/css/bootstrap.css', absolute=true) }}" rel="stylesheet" media="screen">
+  <link href="{{ asset('bundles/vewabase/css/font.css', absolute=true) }}" rel="stylesheet" media="screen">
+  <link href="{{ asset('bundles/vewabase/css/icon.css', absolute=true) }}" rel="stylesheet" media="screen">
+  <link href="{{ asset('bundles/vewabase/css/font-awesome.min.css', absolute=true) }}" rel="stylesheet" media="screen">
+  <link href="{{ asset('bundles/vewabase/css/animate.css', absolute=true) }}" rel="stylesheet" media="screen">
+
+  <!--[if lt IE 9]>
+    <script src="js/ie/html5shiv.js"></script>
+    <script src="js/ie/respond.min.js"></script>
+    <script src="js/ie/excanvas.js"></script>
+  <![endif]-->
+    <script type="text/JavaScript">
+        <!--
+        function timedRefresh(timeoutPeriod) {
+            setTimeout("location.reload(true);",timeoutPeriod);
+        }
+        //   -->
+    </script>
+</head>
+<body class="" onload="JavaScript:timedRefresh(1000);">
+  <section class="vbox">
+    <header class="bg-white header header-md navbar navbar-fixed-top-xs">
+      <div class="navbar-header aside-md dk">
+        <a href="#" class="">
+          <img src="{{ asset('bundles/vewabase/images/vewa.png', absolute=true) }}" class="m-r-s" alt="vewa">
+        </a>
+      </div>
+    </header>
+    <section>
+      <section class="hbox stretch">
+        <!-- .aside -->
+        <aside class="bg-white aside-md hidden-print hidden-xs" id="nav"></aside>
+        <!-- /.aside -->
+        <section id="content">
+          <section class="hbox stretch">
+            <div class="padder">
+
+              <!-- note list -->
+                <ul class="list-group" id="note-items">
+                    {% for product in products %}
+                        <li class="list-group-item hover active">
+                  <div id="note-1" class="view">
+                    <div class="note-name text-ellipsis">
+                      <strong>
+                          {{ product.product.name }} from {{ product.wishlist.device.deviceName }}
+                      </strong>
+                    </div>
+                      <span class="text-xs text-muted">{{ product.product.created|date('Y-m-d H:i:s') }}</span>
+                  </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+          </section>
+        </section>
+      </section>
+    </section>
+  </section>
+
+  <script src="{{ asset('bundles/vewabase/js/app.plugin.js', absolute=true) }}"></script>
+  <script src="{{ asset('bundles/vewabase/js/sortable/jquery.sortable.js', absolute=true) }}"></script>
+  <script src="{{ asset('bundles/vewabase/js/calendar/demo.js', absolute=true) }}"></script>
+  <script src="{{ asset('bundles/vewabase/js/calendar/bootstrap_calendar.js', absolute=true) }}"></script>
+  <script src="{{ asset('bundles/vewabase/js/charts/flot/demo.js', absolute=true) }}"></script>
+  <script src="{{ asset('bundles/vewabase/js/charts/flot/jquery.flot.resize.js', absolute=true) }}"></script>
+  <script src="{{ asset('bundles/vewabase/js/charts/flot/jquery.flot.grow.js', absolute=true) }}"></script>
+  <script src="{{ asset('bundles/vewabase/js/charts/flot/jquery.flot.pie.min.js', absolute=true) }}"></script>
+  <script src="{{ asset('bundles/vewabase/js/charts/flot/jquery.flot.tooltip.min.js', absolute=true) }}"></script>
+  <script src="{{ asset('bundles/vewabase/js/charts/flot/jquery.flot.min.js', absolute=true) }}"></script>
+  <script src="{{ asset('bundles/vewabase/js/charts/sparkline/jquery.sparkline.min.js', absolute=true) }}"></script>
+  <script src="{{ asset('bundles/vewabase/js/charts/easypiechart/jquery.easy-pie-chart.js', absolute=true) }}"></script>
+  <script src="{{ asset('bundles/vewabase/js/slimscroll/jquery.slimscroll.min.js', absolute=true) }}"></script>
+  <script src="{{ asset('bundles/vewabase/js/slimscroll/jquery.slimscroll.min.js', absolute=true) }}"></script>
+  <script src="{{ asset('bundles/vewabase/js/app.js', absolute=true) }}"></script>
+  <script src="{{ asset('bundles/vewabase/js/jquery.min.js', absolute=true) }}"></script>
+  <script src="{{ asset('bundles/vewabase/js/bootstrap.js', absolute=true) }}"></script>
+
+</body>
+</html>
